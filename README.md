@@ -1,5 +1,7 @@
 <div align="center">
-  <h1>watch-dir-safe</h1>
+  <a href="https://github.com/bconnorwhite/watch-dir-safe">
+    <img alt="watch-dir-safe" src="assets/header.svg" />
+  </a>
   <a href="https://npmjs.com/package/watch-dir-safe">
     <img alt="NPM" src="https://img.shields.io/npm/v/watch-dir-safe.svg">
   </a>
@@ -35,9 +37,9 @@ npm install watch-dir-safe
 
 ### Usage
 ```ts
-import watchFile from "watch-file-safe";
+import watchDir from "watch-dir-safe";
 
-const watcher = watchFile("/path/to/dir");
+const watcher = watchDir("/path/to/dir");
 
 watcher.onReady(() => {
   console.log(`Ready`);
@@ -59,9 +61,9 @@ watcher.stop();
 
 ### Types
 ```ts
-import watchFile, { Watcher, EventCallback } from "watch-file-safe";
+import watchDir, { Watcher, EventCallback } from "watch-dir-safe";
 
-function watchFile(path: string): Watcher;
+function watchDir(path: string): Watcher;
 
 type EventCallback = (path: string) => void;
 
@@ -69,6 +71,8 @@ type Watcher = {
   onAdd: (cb: EventCallback) => Watcher;
   onRemove: (cb: EventCallback) => Watcher;
   onChange: (cb: EventCallback) => Watcher;
+  onAddDir: (cb: EventCallback) => Watcher;
+  onRemoveDir: (cb: EventCallback) => Watcher;
   onReady: (cb: () => void) => Watcher;
   stop: () => Promise<boolean>;
 }
@@ -96,7 +100,8 @@ type Watcher = {
 
 ## Related Packages
 
-- [watch-dir-safe](https://www.npmjs.com/package/watch-dir-safe): Watch a directory for changes
+- [fs-safe](https://www.npmjs.com/package/fs-safe): A simple fs wrapper that doesn't throw
+- [watch-file-safe](https://www.npmjs.com/package/watch-file-safe): Watch a file for changes
 - [read-dir-safe](https://www.npmjs.com/package/read-dir-safe): Read directories recursively or non-recursively
 - [write-dir-safe](https://www.npmjs.com/package/write-dir-safe): Create directories and their parents recursively
 - [remove-dir-safe](https://www.npmjs.com/package/remove-dir-safe): Remove directories recursively or non-recursively
