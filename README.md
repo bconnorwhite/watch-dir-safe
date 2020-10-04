@@ -23,6 +23,8 @@
 
 > Watch a directory for changes.
 
+Provides a simplified wrapper around [chokidar](https://www.npmjs.com/package/chokidar) for watching a directory.
+
 ## Installation
 
 ```sh
