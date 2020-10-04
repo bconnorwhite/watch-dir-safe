@@ -1,6 +1,6 @@
 {
   "name": "watch-dir-safe",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Watch a directory for changes",
   "license": "MIT",
   "author": {
